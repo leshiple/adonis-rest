@@ -1,0 +1,14 @@
+FROM node:15.12-alpine
+
+WORKDIR /var/www/adonis
+
+RUN apk add --no-cache bash
+
+RUN apk add --update tzdata
+
+ARG DEBUG=false
+
+
+ENV TZ=Europe/Moscow
+
+CMD ["sh", "-c", "chmod +x /var/www/adonis/run.sh && /var/www/adonis/run.sh"]
